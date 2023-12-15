@@ -1,0 +1,38 @@
+<template>
+    <div class="slds-m-around_medium">
+        <lightning-card title="SendGrid Email" icon-name="standard:email">
+            <lightning-layout>
+                <lightning-layout-item size="6" class="slds-text-align_left">
+                    <lightning-combobox
+                        label="Select Object"
+                        value={objectApiName}
+                        options={objectOptions}
+                        onchange={handleObjectChange}
+                    ></lightning-combobox>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <div class="slds-m-top_medium">
+                <lightning-datatable
+                    key-field="Id"
+                    data={records}
+                    columns={columns}
+                    onrowselection={handleRecordSelection}
+                ></lightning-datatable>
+            </div>
+
+            <div class="slds-m-top_medium">
+                <lightning-layout>
+                    <lightning-layout-item size="6" class="slds-text-align_left">
+                        <lightning-button
+                            label="Send Email"
+                            title="Send Email"
+                            variant="brand"
+                            onclick={handleSendEmail}
+                        ></lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </lightning-card>
+    </div>
+</template>
